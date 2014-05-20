@@ -13,5 +13,5 @@ int main(){
   }
 
   cout << count << endl;
-  return 0; // Main always returns an int in C++
+  return 0; // main needs to return an int in C++ (not the case in D)
 }
