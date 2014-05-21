@@ -1,7 +1,9 @@
 #include <algorithm>
 #include <vector>
 #include <iostream>
-
+#include <boost/range/adaptors.hpp>
+#include <boost/range/algorithm.hpp>
+#include <boost/range/numeric.hpp>
 using namespace std;
 
 vector<int> fib(int n){
@@ -23,15 +25,21 @@ int main(){
 
   int total_count = 0;
   vector<int> series = fib(34);
-  
+
+  // I like the LINQ way of expressing these sort of data-flow patterns
+  // This is my attempt to get close to that
+  int value = boost::accumulate(series | 
+                  boost::adaptors::filtered(isOdd), 0);
+
+  /*
   for (int i=0; i< series.size(); i++){
     if(isOdd(series[i])){
       total_count += series[i];
     }
-  }
+  }*/
 
 
-  cout << total_count << endl;
+  cout << value << endl;
 
   return 0;
 }
