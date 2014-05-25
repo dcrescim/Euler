@@ -8,9 +8,7 @@ using namespace std;
 map<int,int> prime_factorize(int numb){
 
   map<int, int> factors;
-
-  for(int i=2; i <= numb; i++){
-
+  for(int i=2; i <= numb; i++)
     if (numb % i == 0){
       factors[i] += 1;
       numb /= i;

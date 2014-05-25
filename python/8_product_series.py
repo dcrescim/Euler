@@ -1,7 +1,7 @@
 import os
 import operator
 
-f = open('8_numb.txt')
+f = open('../data/8_product_series.txt')
 numb_str = f.readline()
 
 ints = map(int, list(numb_str))

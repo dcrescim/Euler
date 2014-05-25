@@ -4,7 +4,7 @@ function convertInt(element){
   return parseInt(element, 10);
 }
 
-var data = fs.readFileSync('8_numb.txt', 'utf-8');
+var data = fs.readFileSync('../data/8_product_series.txt', 'utf-8');
 
 data = data.split('')
 
