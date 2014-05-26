@@ -1,4 +1,22 @@
+Object.prototype.keys = function(){
+  var keys = [];
+  for(el in this){
+    if (this.hasOwnProperty(el)){
+      keys.push(el);
+    }
+  }
+  return keys;
+};
 
+Object.prototype.values = function(){
+  var values = [];
+  for(el in this){
+    if (this.hasOwnProperty(el)){
+      values.push(this[el]);
+    }
+  }
+  return values;
+};
 
 function prime_factorize(numb){
   var prime_map = {};
@@ -36,23 +54,9 @@ function triangle_factorize(numb){
   else{
     second[2] -= 1;
   }
-
-  var first_exp = [];
-  for(var el in first){
-    if (first.hasOwnProperty(el)){
-      first_exp.push(first[el]);
-    }
-  }
-
-  var second_exp = [];
-  for(var el in second){
-    if (second.hasOwnProperty(el)){
-      second_exp.push(second[el]);
-    }
-  }
-
-  var div1 = first_exp.map(increment).reduce(multiply, 1);
-  var div2 = second_exp.map(increment).reduce(multiply,1);
+  
+  var div1 = first.values().map(increment).reduce(multiply, 1);
+  var div2 = second.values().map(increment).reduce(multiply,1);
 
   return div1*div2;
 

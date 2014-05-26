@@ -4,12 +4,14 @@ from collections import defaultdict
 def prime_factorize(numb):
   primes = defaultdict(int)
   i = 2
-  while(i <= numb):
+  while(i <= int(math.sqrt(numb)) + 1):
     if (numb % i == 0):
       primes[i] += 1
       numb /= i
       i -= 1
     i += 1
+  if numb > 1:
+    primes[numb] += 1
   return primes
 
 def update(map1, map2):

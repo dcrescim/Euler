@@ -1,27 +1,50 @@
 
-
-function isPrime(numb){
-  for(var i=2; i<=Math.floor(Math.sqrt(numb)); i++){
-    if (numb % i == 0){
-      return false;
+Object.prototype.keys = function(){
+  var keys = [];
+  for(el in this){
+    if (this.hasOwnProperty(el)){
+      keys.push(el);
     }
   }
-  return true;
-}
+  return keys;
+};
 
-
-function largest_prime_factor(big_numb){
-  largest_prime_factor = 1;
-  for(var i=2; i<=Math.floor(Math.sqrt(big_numb)); i++){
-
-    if((big_numb % i ==0) && (isPrime(i))){
-      largest_prime_factor = i;
+Object.prototype.values = function(){
+  var values = [];
+  for(el in this){
+    if (this.hasOwnProperty(el)){
+      values.push(this[el]);
     }
   }
-  return largest_prime_factor;
+  return values;
+};
+
+function prime_factorize(numb){
+
+  var prime_map = {};
+  for(var i=2; i<=Math.sqrt(numb); i++){
+    if(numb % i == 0){
+      if (i in prime_map){
+        prime_map[i] += 1;
+      }
+      else{
+        prime_map[i] = 1;
+      }
+      numb /= i;
+      i--;
+    }
+  }
+  if(numb > 1){
+
+    if (numb in prime_map){
+      prime_map[numb] += 1;
+    }
+    else{
+      prime_map[numb] = 1;
+    }
+  }
+  return prime_map;
 }
 
-exports.isPrime = isPrime;
-exports.largest_prime_factor = largest_prime_factor;
-
-console.log(largest_prime_factor(600851475143))
+var prime_factors = prime_factorize(600851475143);
+console.log(Math.max.apply(Math,prime_factors.keys()));
