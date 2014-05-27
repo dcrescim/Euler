@@ -21,7 +21,7 @@ map<int,int> prime_factorize(int numb){
 }
 
 int increment(int x){return x+1;}
-int grab_second(pair<int,int> value){return value.second;}
+//int grab_second(pair<int,int> value){return value.second;}
 
 int triangle_number(int numb){
 
@@ -35,12 +35,12 @@ int triangle_number(int numb){
     second[2] -= 1;
   }
 
-  int val1 = boost::accumulate(first  |  boost::adaptors::transformed(grab_second)
+  int val1 = boost::accumulate(first  |  boost::adaptors::map_values
                                       |  boost::adaptors::transformed(increment)
                                       , 1, std::multiplies<int>());
   
 
-  int val2 = boost::accumulate(second |  boost::adaptors::transformed(grab_second)
+  int val2 = boost::accumulate(second |  boost::adaptors::map_values
                                       |  boost::adaptors::transformed(increment)
                                       , 1, std::multiplies<int>());
   
