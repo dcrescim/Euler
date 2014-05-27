@@ -88,28 +88,3 @@ int main(){
 
   return 0;
 }
-
-
-/*
-
-
-
-void main(string[] args){
-
-  auto grid = grab_grid("../data/11_grid_product.txt");
-
-  int max_total = 0;
-
-  for(int i = 0; i < 20; i++){
-    for(int j = 0; j < 20; j++){
-      auto neighbor_lists = get_neighbor_list(i,j);
-      for(int k = 0; k < neighbor_lists.length; k++){
-        int total = check_grid(grid, neighbor_lists[k]);
-        max_total = max(max_total, total);
-      }
-    }
-  }
-
-  writeln(max_total);
-}
-*/
