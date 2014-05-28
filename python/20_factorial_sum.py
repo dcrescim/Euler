@@ -9,5 +9,11 @@ def sum_digits(numb):
 
   return total
 
+def factorial(numb):
+  total = 1
+  while numb > 1:
+    total *= numb
+    numb -= 1
+  return total
 
-print sum_digits(2**1000)
+print sum_digits(factorial(100))
