@@ -1,6 +1,4 @@
 import os
-import numpy as np
-from asq.initiators import query
 
 def get_neighbor_list(i,j):
   neighbors = []
