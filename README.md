@@ -1,5 +1,5 @@
-Problems
-========
+Description
+===========
 
 In this directory I have a bunch of solutions to various project euler questions in languages that I'm trying to master.
 
